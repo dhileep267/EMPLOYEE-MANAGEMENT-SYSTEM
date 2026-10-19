@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+</head>
+
+<body>
+
+    <h1>Employee Management</h1>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Manager</th>
+                <th>Department</th>
+                <th>Active?</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for e in employees %}
+            <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.first_name }} {{ e.last_name }}</td>
+                <td>{{ e.email }}</td>
+                <td>{{ e.designation }}</td>
+                <td>{{ e.salary }}</td>
+                <td>{{ e.manager|default:"None" }}</td>
+                <td>{{ e.department|default:"None" }}</td>
+                <td>{{ e.is_active|yesno:"Yes,No" }}</td>
+                <td><div>
+
+                
+<div>
+    <a href="{% url 'employee_detail',e.id}" title="View">👁</a>
+    <a href="" title="Edit">✏️</a>
+    <a href="" title="Delete">🗑️</a>
+</div>
+
+                </div></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No employees found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+ 
+

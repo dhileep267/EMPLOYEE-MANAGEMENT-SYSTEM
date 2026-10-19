@@ -1,0 +1,30 @@
+
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+env/
+venv/
+.venv/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Local SQLite database
+db.sqlite3
+
+# Django generated files
+/staticfiles/
+
+# User uploads
+/media/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Test coverage
+.coverage
+htmlcov/
